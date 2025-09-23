@@ -107,10 +107,11 @@ new_client_dns () {
 	echo "   3) 1.1.1.1"
 	echo "   4) OpenDNS"
 	echo "   5) Quad9"
-	echo "   6) AdGuard"
-	echo "   7) Specify custom resolvers"
+	echo "   6) Gcore"
+	echo "   7) AdGuard"
+	echo "   8) Specify custom resolvers"
 	read -p "DNS server [1]: " dns
-	until [[ -z "$dns" || "$dns" =~ ^[1-7]$ ]]; do
+	until [[ -z "$dns" || "$dns" =~ ^[1-8]$ ]]; do
 		echo "$dns: invalid selection."
 		read -p "DNS server [1]: " dns
 	done
@@ -139,9 +140,12 @@ new_client_dns () {
 			dns="9.9.9.9, 149.112.112.112"
 		;;
 		6)
-			dns="94.140.14.14, 94.140.15.15"
+			dns="95.85.95.85, 2.56.220.2"
 		;;
 		7)
+			dns="94.140.14.14, 94.140.15.15"
+		;;
+		8)
 			echo
 			until [[ -n "$custom_dns" ]]; do
 				echo "Enter DNS servers (one or more IPv4 addresses, separated by commas or spaces):"
